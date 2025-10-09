@@ -3,10 +3,11 @@ const mic = document.getElementById("mic");
 const clearButton = document.getElementById("clear");
 const output = document.getElementById("output");
 const interim = document.getElementById("interim-results");
+const isSuccess = document.getElementById("status");
 
 let finalTranscript = "";
 let recognizing = false;
-let shouldRestart = false;
+let shouldRestart = false; // Used for safe restarts
 
 let recognition;
 
@@ -16,6 +17,9 @@ if (SpeechRecognition) {
     recognition.interimResults = true; // Return results that are not yet final
     recognition.continuous = true; // General continuous listening 
 
+    /*
+    Starts/stops Speech Recognition based on user interaction
+    */
     mic.addEventListener("click", () => {
         if (!recognizing) {
             shouldRestart = true;
@@ -30,12 +34,19 @@ if (SpeechRecognition) {
 
     })
 
+    /*
+    Clears transcript on page and text saved to final transcript
+    */
     clearButton.addEventListener("click", () => {
         output.textContent = "";
         interim.textContent = "";
         finalTranscript = "";
     })
 
+    /*
+    Update final transcript and interim chunks when speech is being recognized 
+    and processed by Speech Recognition
+    */
     recognition.onresult = (event) => {
         let interimChunk = "";
         for (let i = event.resultIndex; i < event.results.length; i++) {
@@ -51,11 +62,17 @@ if (SpeechRecognition) {
         interim.textContent = interimChunk;
     }
 
+    /*
+    Start Speech Recognition
+    */
     recognition.onstart = () => {
         recognizing = true;
         console.log("Speech Recognition Service has Connected");
     }
 
+    /*
+    End Speech Recogintion
+    */
     recognition.onend = () => {
         recognizing = false;
         console.log("Speech Recognition Service Disconnected, attempting to reconnect");
@@ -67,7 +84,8 @@ if (SpeechRecognition) {
 
 }
 else {
-    console.warn("SpeechRecognition API is not available for this Browser");
+    isSuccess.textContent = "SpeechRecognition is not available for this Browser: Try Google Chrome or Microsoft Edge"
+    console.warn("SpeechRecognition is not available for this Browser: Try Google Chrome or Microsoft Edge");
 }
 
 document.getElementById("saveForm").addEventListener("submit", async (event) => {
@@ -80,12 +98,14 @@ document.getElementById("saveForm").addEventListener("submit", async (event) => 
     mic.textContent = "Start🎙️";
 
     if (finalTranscript === "") {
+        isSuccess.textContent = "Need a transcript"
         console.warn("Need a transcript");
         return;
     }
     const title = document.getElementById("title").value;
 
     try {
+        // POST request to save transcript
         const res = await fetch("/api/save", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -93,9 +113,9 @@ document.getElementById("saveForm").addEventListener("submit", async (event) => 
         });
 
         if (res.ok) {
-            const data = await res.json();
-            const isSuccess = document.getElementById("status");
             isSuccess.textContent = "Successfully saved '" + title + "'.";
+        } else {
+            isSuccess.textContent = "Could not save '" + title + "'.";
         }
 
     } catch (err) {
