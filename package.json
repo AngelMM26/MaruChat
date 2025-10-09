@@ -1,0 +1,24 @@
+{
+  "name": "maruchat",
+  "version": "1.0.0",
+  "description": "**MaruChat** is a browser based voice transcription app that captures, transcribes, and stores speech as text, integrating the Speech Recognition Interface from Web API",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AngelMM26/MaruChat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AngelMM26/MaruChat/issues"
+  },
+  "homepage": "https://github.com/AngelMM26/MaruChat#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.19.1"
+  }
+}
