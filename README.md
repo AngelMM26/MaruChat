@@ -1,4 +1,4 @@
-# MaruChat 🔍
+# MaruChat 🗣️
 
 **MaruChat** is a browser based voice transcription app that captures, transcribes, and stores speech as text, integrating the Speech Recognition Interface from Web API
 
