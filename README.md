@@ -27,6 +27,11 @@ MaruChat/
 
 ---
 
+## 📌 Future Enhancements
+
+- Implement dashboard for retrieval and display
+
+---
 
 ## 🧑‍💻 Author
 
