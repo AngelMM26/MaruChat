@@ -29,6 +29,17 @@ const transcriptSchema = new mongoose.Schema({
 
 const Transcript = mongoose.model("Transcript", transcriptSchema);
 
+
+app.get("/api/transcripts", async (req, res) => {
+    try {
+        const transcripts = await Transcript.find().sort({ date: -1 });
+        res.status(200).json(transcripts); // Return an array of transcripts sorted by descending order (JSON object)
+    } catch (err) {
+        console.error("Error fetching transcripts:", err);
+        res.status(500).send({ error: "Failed to fetch transcripts" });
+    }
+});
+
 app.post("/api/save", async (req, res) => {
     const { title, transcript } = req.body;
     const doc = await Transcript.create({
@@ -36,8 +47,9 @@ app.post("/api/save", async (req, res) => {
         date: undefined,
         transcript: transcript
     })
-    res.status(200).send({ // Upon sucessful creation send back the docID
+    res.status(200).send({ // Upon sucessful creation send back the docID, revist this
         docID: doc._id,
     });
 })
+
 

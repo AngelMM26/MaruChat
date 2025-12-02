@@ -8,31 +8,52 @@
 </head>
 
 <body>
-    <h1>Maruchat</h1>
-    <button id="mic" name="mic">Start🎙️</button>
-    <button id="clear">Clear</button>
 
-    <br><br>
+    <h1 style="font-size: 50px;">MaruChat</h1>
 
-    <div id="output"></div>
+    <h3>Start Recording</h3>
+    <div class="general-section">
+        <div id="output"></div>
+        <br>
+        <div id="interim-results" style="opacity: 0.6;"></div>
+        <br>
+        <button id="mic" name="mic">🎙️</button>
+        <button id="clear">Clear</button>
+    </div>
 
-    <div id="interim-results" style="opacity: 0.6;"></div>
 
     <br>
 
     <h3>Save Transcript</h3>
-    <form id="saveForm">
-        <label for="title">Title: </label>
-        <input id="title" type="text" required> <br>
-        <button type="submit">Save</button>
-    </form>
+    <div class="general-section">
+        <form id="saveForm">
+            <input id="title" type="text" placeholder="Title" required>
+            <button type="submit">Save</button>
+        </form>
+    </div>
 
     <br>
 
     <div id="status"></div>
 
+    <br>
+
+    <h3>Saved Transcripts</h3>
+    <div class="general-section">
+        <button id="refresh">Refresh</button>
+        <div id="transcriptList">
+            <div class="transcript-card">
+                <div class="transcript-header">
+                    <div class="transcript-title">This is a test</div>
+                    <div class="transcript-date">11/19/27</div>
+                </div>
+                <div class="transcript-text">lol</div>
+            </div>
+        </div>
+    </div>
 
     <script src="audio.js"></script>
+    <script src="dashboard.js"></script>
 </body>
 
 </html>

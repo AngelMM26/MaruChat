@@ -24,12 +24,12 @@ if (SpeechRecognition) {
         if (!recognizing) {
             shouldRestart = true;
             recognition.start();
-            mic.textContent = "Pause⏸️";
+            mic.textContent = "⏸️";
         }
         else {
             shouldRestart = false;
             recognition.stop();
-            mic.textContent = "Start🎙️";
+            mic.textContent = "🎙️";
         }
 
     })
