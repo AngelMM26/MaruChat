@@ -10,7 +10,8 @@
 MaruChat/
 │
 ├── public/
-|   ├── audio.js          # Handles speech recognition and frontend logic
+|   ├── audio.js          # Handles speech recognition and logic
+|   ├── dashboard.js      # Handles dashboard display and logic
 |   ├── index.html        # Main interface
 |
 ├── app.js                # Express app startpoint and API endpoints
