@@ -36,17 +36,15 @@ async function loadTranscripts() {
 
 // Create HTML for a transcript card
 function createTranscriptCard(transcript) {
-    const date = new Date(transcript.date).toLocaleString();
+    const date = new Date(transcript.date).toLocaleString(); // Creates a readable date
 
     return `
         <div class="transcript-card">
             <div class="transcript-header">
-                <div>
-                    <div class="transcript-title">${transcript.title}</div>
-                    <div class="transcript-date">${date}</div>
-                </div>
+                <div>${transcript.title}</div>
+                <div>${date}</div>
             </div>
-            <div class="transcript-text">${transcript.transcript}</div>
+            <p>${transcript.transcript}</p>
         </div>
     `;
 }
