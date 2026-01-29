@@ -1,14 +1,8 @@
-const path = require("path");
 const express = require("express");
 const mongoose = require("mongoose");
 
 const app = express();
 app.use(express.json());
-/*
-By default, Express does not automatically serve any files from server's file system,
-so must explicity enable this functionality
-*/
-app.use(express.static(path.join(__dirname, "public"))); // contents served directly to the browser
 
 app.listen(3000, () => console.log(`Server running at http://localhost:3000`));
 

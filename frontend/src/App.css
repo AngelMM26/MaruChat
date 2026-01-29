@@ -1,0 +1,72 @@
+body {
+  background: #e8e8e8;
+  font-family: 'Courier New', monospace;
+  padding: 20px;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+  font-size: 50px;
+}
+
+button {
+  font-family: 'Courier New', monospace;
+  background-color: #fff1c5;
+  border-width: 1.5px;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+
+input {
+  background-color: #e8e8e8;
+  font-family: 'Courier New', monospace;
+  border: 1.5px solid black;
+  border-radius: 3px;
+  padding: 4px;
+  margin-right: 10px;
+}
+
+#output {
+  background: #e8e8e8;
+  border: 1.5px solid black;
+  border-radius: 3px;
+  padding: 20px;
+  min-height: 100px;
+  margin-bottom: 10px;
+}
+
+#interim-results {
+  background: #e8e8e8;
+  border: 1.5px solid black;
+  border-radius: 3px;
+  padding: 20px;
+  min-height: 18px;
+  margin-bottom: 10px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.general-section {
+  background-color: #fad55f;
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.transcript-card {
+  background-color: #e8e8e8;
+  margin-top: 10px;
+  border: 1.5px solid black;
+  border-radius: 3px;
+  padding: 20px;
+}
+
+.transcript-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.transcript-header {
+  margin-bottom: 15px;
+}

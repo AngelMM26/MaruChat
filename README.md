@@ -1,6 +1,6 @@
 # MaruChat 🗣️
 
-**MaruChat** is a browser based voice transcription app that captures, transcribes, and stores speech as text, integrating the Speech Recognition Interface from Web API
+**MaruChat** is a browser-based voice transcription application that captures and transcribes speech in real time using the Web Speech API, then stores transcripts for later retrieval. The frontend is built with React, while the backend uses Node.js and Express, with transcript data persisted in MongoDB via Mongoose.
 
 ---
 
@@ -9,13 +9,24 @@
 ```
 MaruChat/
 │
-├── public/
-|   ├── audio.js          # Handles speech recognition and logic
-|   ├── dashboard.js      # Handles dashboard display and logic
-|   ├── index.html        # Main interface
+├── backend/
+|   ├── app.js      # Express app startpoint and API endpoints
+|   
 |
-├── app.js                # Express app startpoint and API endpoints
-└── README.md             # Project documentation
+├── frontend/
+|   ├── src/
+|   |   ├── components/
+|   |   ├── RecordingSection.jsx    # Handles Speech recogntion and logic
+|   |   ├── SaveTranscripts.jsx     # Saves Transcript
+|   |   ├── TranscriptList.jsx      # Dashboard display and logic
+|   |
+|   ├── App.css     # Styling Sheet
+|   ├── App.jsx     # Main application component
+|   ├── main.jsx    # Bootstarps React
+|   ├── index.html  # Root HTML entry point
+|   ├── vite.config.js      # Build and development configuration
+|                
+└── README.md       # Project documentation
 ```
 
 ---
@@ -30,7 +41,9 @@ MaruChat/
 
 ## 📌 Future Enhancements
 
-- Integrate React front-end
+- Delete transcripts
+- Collapsed preview for long transcripts 
+- Integrate OpenAI Whisper for higher speech to text accuracy
 
 ---
 
